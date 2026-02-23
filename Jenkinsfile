@@ -29,5 +29,21 @@ pipeline {
                 sh 'test -f build/index.html'
             }
         }
+        stage('Deploy') {
+            agent {
+                docker{
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+            steps {
+                echo 'This is the build stage building my app'
+                sh '''
+                    npm install -g netlify-cli
+                    npx netlify --version
+
+                '''
+            }
+        } 
     }
 }
