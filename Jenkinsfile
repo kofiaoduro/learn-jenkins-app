@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+        /*
         stage('Build') {
             agent {
                 docker{
@@ -20,6 +21,12 @@ pipeline {
 
                     ls -l
                 '''
+            }
+        } */
+        stage('Test') {
+            steps {
+                echo 'Testing to see if the index.html exits'
+                sh 'test -f build/index.html'
             }
         }
     }
