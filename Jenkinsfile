@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        
+        /*
         stage('Build') {
             agent {
                 docker{
@@ -22,7 +22,7 @@ pipeline {
                     ls -l
                 '''
             }
-        } 
+        } */
         stage('Test') {
             steps {
                 echo 'Testing to see if the index.html exits'
@@ -39,7 +39,7 @@ pipeline {
             steps {
                 echo 'This is the build stage building my app'
                 sh '''
-                    npm install -g netlify-cli
+                    npm install netlify-cli --save-dev
                     npx netlify --version
 
                 '''
