@@ -39,7 +39,7 @@ pipeline {
             steps {
                 echo 'This is the build stage building my app'
                 sh '''
-                    npm install netlify-cli --save-dev
+                    npm install netlify-cli@20.1.1 --save-dev
                     npx netlify --version
 
                 '''
